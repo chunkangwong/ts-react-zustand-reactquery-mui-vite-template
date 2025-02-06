@@ -8,7 +8,8 @@ module.exports = {
   "addons": [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "@storybook/addon-interactions"
+    "@storybook/addon-interactions",
+    "@chromatic-com/storybook"
   ],
 
   "framework": {
@@ -16,7 +17,9 @@ module.exports = {
     "options": {}
   },
 
-  docs: {
-    autodocs: true
+  docs: {},
+
+  typescript: {
+    reactDocgen: "react-docgen-typescript"
   }
 }
