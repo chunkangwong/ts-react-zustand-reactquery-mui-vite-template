@@ -1,0 +1,22 @@
+import { useMutation } from "@tanstack/react-query";
+import type { FormValues, WeatherResponse } from "../types";
+
+export const useQueryWeather = () =>
+  useMutation({
+    mutationFn: async (formValues: FormValues) => {
+      const q = `${formValues.city}, ${formValues.country}`;
+      const url = `${
+        import.meta.env.VITE_OPENWEATHER_BASE_URL
+      }?q=${encodeURIComponent(q)}&appid=${
+        import.meta.env.VITE_OPENWEATHER_API_KEY
+      }&units=metric`;
+
+      const response = await fetch(url);
+      if (!response.ok) throw new Error(`API error: ${response.status}`);
+
+      const weatherData: WeatherResponse = await response.json();
+
+      const datetime = new Date().getTime();
+      return { ...weatherData, datetime: datetime };
+    },
+  });
