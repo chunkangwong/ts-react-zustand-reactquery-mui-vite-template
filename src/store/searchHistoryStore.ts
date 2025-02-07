@@ -6,7 +6,6 @@ type BearStore = {
   searchHistoryItems: SearchHistoryItemType[];
   addItem: (item: SearchHistoryItemType) => void;
   deleteItem: (id: number) => void;
-  deleteAll: () => void;
 };
 
 export const useSearchHistoryStore = create<BearStore>()(
@@ -20,10 +19,6 @@ export const useSearchHistoryStore = create<BearStore>()(
           searchHistoryItems: get().searchHistoryItems.filter(
             (item) => item.id !== id
           ),
-        }),
-      deleteAll: () =>
-        set({
-          searchHistoryItems: [],
         }),
     }),
     {
