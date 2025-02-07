@@ -17,15 +17,17 @@ export const Searchbar = ({ onSearch }: SearchbarProps) => {
       country: "MY",
     },
   });
+
+  const { city, country } = form.watch();
+
   const handleSubmit = form.handleSubmit(({ city, country }) => {
     onSearch({ city, country });
-
     form.reset();
   });
 
   return (
     <form onSubmit={handleSubmit}>
-      <Stack direction="row">
+      <Stack direction="row" gap={1} alignItems="center">
         <TextField
           label="City"
           variant="filled"
@@ -34,6 +36,17 @@ export const Searchbar = ({ onSearch }: SearchbarProps) => {
           })}
           error={!!form.formState.errors.city}
           helperText={!!form.formState.errors.city?.message}
+          slotProps={{
+            input: {
+              disableUnderline: true,
+            },
+          }}
+          sx={{
+            "& .MuiFilledInput-root": {
+              borderRadius: "8px",
+              backgroundColor: "rgba(255, 255, 255, 0.2)",
+            },
+          }}
         />
         <TextField
           label="Country"
@@ -43,11 +56,44 @@ export const Searchbar = ({ onSearch }: SearchbarProps) => {
           })}
           error={!!form.formState.errors.country}
           helperText={!!form.formState.errors.country?.message}
+          slotProps={{
+            input: {
+              disableUnderline: true,
+            },
+          }}
+          sx={{
+            "& .MuiFilledInput-root": {
+              borderRadius: "8px",
+              backgroundColor: "rgba(255, 255, 255, 0.2)",
+            },
+          }}
         />
-        <IconButton type="reset">
-          <ClearIcon />
-        </IconButton>
-        <IconButton type="submit">
+        {(city || country) && (
+          <IconButton
+            type="reset"
+            sx={{
+              borderRadius: "25%",
+              backgroundColor: "rgba(108, 64, 181, 1)",
+              color: "white",
+              "&:hover": {
+                backgroundColor: "rgba(108, 64, 181, 0.6)",
+              },
+            }}
+          >
+            <ClearIcon />
+          </IconButton>
+        )}
+        <IconButton
+          type="submit"
+          sx={{
+            borderRadius: "25%",
+            backgroundColor: "rgba(108, 64, 181, 1)",
+            color: "white",
+            "&:hover": {
+              backgroundColor: "rgba(108, 64, 181, 0.6)",
+            },
+          }}
+        >
           <SearchIcon />
         </IconButton>
       </Stack>
