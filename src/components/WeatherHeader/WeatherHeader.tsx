@@ -23,11 +23,24 @@ export const WeatherHeader = ({
         }}
       >
         <Typography>Today's Weather</Typography>
-        <Typography>{temp}&deg;</Typography>
+        <Typography
+          variant="h1"
+          sx={{
+            fontWeight: "bold",
+            color: "rgba(108, 64, 181, 1)",
+          }}
+        >
+          {temp}&deg;
+        </Typography>
         <Typography>
           H: {temp_max}&deg; L: {temp_min}&deg;
         </Typography>
-        <Typography>
+        <Typography
+          sx={{
+            fontWeight: "bold",
+            color: "rgba(102, 102, 102, 1)",
+          }}
+        >
           {name}, {country}
         </Typography>
       </Grid>
@@ -37,9 +50,15 @@ export const WeatherHeader = ({
             xs: "column-reverse",
             md: "row",
           }}
-          justifyContent="space-between"
+          justifyContent={{
+            xs: "end",
+            md: "space-between",
+          }}
           alignItems="end"
           height="100%"
+          sx={{
+            color: "rgba(102, 102, 102, 1)",
+          }}
         >
           <Typography>{dayjs(datetime).format("DD-MM-YYYY hh:mmA")}</Typography>
           <Typography>Humidity: {humidity}%</Typography>
