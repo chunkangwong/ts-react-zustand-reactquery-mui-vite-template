@@ -3,17 +3,17 @@ import Typography from "@mui/material/Typography";
 import { SearchHistoryItemType } from "../../types";
 import { SearchHistoryItem } from "../SearchHistoryItem/SearchHistoryItem";
 
-interface SearchHistoryProps {
+interface SearchHistoryListProps {
   searchHistoryItems: SearchHistoryItemType[];
   onDelete: (id: number) => void;
   onSearch: (formValues: { city: string; country: string }) => void;
 }
 
-export const SearchHistory = ({
+export const SearchHistoryList = ({
   searchHistoryItems,
   onDelete,
   onSearch,
-}: SearchHistoryProps) => {
+}: SearchHistoryListProps) => {
   return (
     <Stack
       gap={2}

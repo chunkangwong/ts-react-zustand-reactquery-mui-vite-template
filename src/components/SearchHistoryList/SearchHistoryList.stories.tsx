@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { SearchHistory } from "./SearchHistory";
+import { SearchHistoryList } from "./SearchHistoryList";
 
 const meta = {
-  title: "Components/SearchHistory",
-  component: SearchHistory,
+  title: "Components/SearchHistoryList",
+  component: SearchHistoryList,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ["autodocs"],
   parameters: {
@@ -12,7 +12,7 @@ const meta = {
     layout: "fullscreen",
   },
   args: {},
-} satisfies Meta<typeof SearchHistory>;
+} satisfies Meta<typeof SearchHistoryList>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

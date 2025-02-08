@@ -73,9 +73,6 @@ export const Searchbar = ({ onSearch }: SearchbarProps) => {
           borderRadius: { xs: "8px", md: "25%" },
           backgroundColor: "bg.searchIconButton",
           color: "white",
-          "&:hover": {
-            backgroundColor: "rgba(108, 64, 181, 0.6)",
-          },
         }}
       >
         <ClearIcon />

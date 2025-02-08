@@ -1,7 +1,7 @@
 import { useTheme } from "@mui/material";
 import Stack from "@mui/material/Stack";
 import { Searchbar } from "./components/Searchbar/Searchbar";
-import { SearchHistory } from "./components/SearchHistory/SearchHistory";
+import { SearchHistoryList } from "./components/SearchHistoryList/SearchHistoryList";
 import { WeatherHeader } from "./components/WeatherHeader/WeatherHeader";
 import { useQueryWeather } from "./hooks/useQueryWeather";
 import { useSearchHistoryStore } from "./store/searchHistoryStore";
@@ -65,7 +65,7 @@ function App() {
           weatherData={queryWeather.data}
           loading={queryWeather.isPending}
         />
-        <SearchHistory
+        <SearchHistoryList
           searchHistoryItems={searchHistoryItems}
           onDelete={handleDelete}
           onSearch={handleSearch}
