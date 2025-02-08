@@ -11,6 +11,7 @@ declare module "@mui/material/styles" {
     };
     border: {
       itemIconButton: string;
+      panel: string;
     };
     font: {
       info: string;
@@ -28,6 +29,7 @@ declare module "@mui/material/styles" {
     };
     border?: {
       itemIconButton: string;
+      panel: string;
     };
     font?: {
       info: string;
@@ -49,6 +51,7 @@ export const lightTheme = createTheme({
     },
     border: {
       itemIconButton: "white",
+      panel: "rgba(255, 255, 255, 0.5)",
     },
     font: {
       info: "rgba(102, 102, 102, 1)",
@@ -70,6 +73,7 @@ export const darkTheme = createTheme({
     },
     border: {
       itemIconButton: "rgba(255, 255, 255, 0.4)",
+      panel: "rgba(26, 26, 26, 0.3)",
     },
     font: {
       info: "white",

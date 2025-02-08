@@ -51,12 +51,12 @@ function App() {
         alignItems="center"
         justifyContent="center"
         width={{ md: "50%", xs: "80%" }}
-        p={2}
+        p={4}
         mt={2}
         sx={{
           backgroundColor: "bg.panel",
-          borderRadius: "24px",
-          borderColor: "rgba(255, 255, 255, 0.5)",
+          borderRadius: { xs: "24px", md: "40px" },
+          borderColor: "border.panel",
           borderWidth: "1px",
           borderStyle: "solid",
         }}
