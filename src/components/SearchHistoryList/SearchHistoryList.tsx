@@ -1,6 +1,7 @@
 import DeleteSweepIcon from "@mui/icons-material/DeleteSweep";
 import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
+import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 import { SearchHistoryItemType } from "../../types";
 import { SearchHistoryItem } from "../SearchHistoryItem/SearchHistoryItem";
@@ -31,9 +32,11 @@ export const SearchHistoryList = ({
     >
       <Stack direction="row" justifyContent="space-between" alignItems="center">
         <Typography>Search History</Typography>
-        <IconButton size="small" onClick={onDeleteAll}>
-          <DeleteSweepIcon />
-        </IconButton>
+        <Tooltip title="Delete All" disableInteractive>
+          <IconButton size="small" onClick={onDeleteAll}>
+            <DeleteSweepIcon />
+          </IconButton>
+        </Tooltip>
       </Stack>
       {searchHistoryItems.map((searchHistoryItem) => (
         <SearchHistoryItem

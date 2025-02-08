@@ -4,6 +4,7 @@ import { SxProps, Theme, useMediaQuery, useTheme } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
+import Tooltip from "@mui/material/Tooltip";
 import { FormValues } from "../../types";
 
 interface SearchBarProps {
@@ -39,12 +40,16 @@ export const SearchBar = ({ onSearch }: SearchBarProps) => {
     >
       <SearchBarTextField label="City" name="city" />
       <SearchBarTextField label="Country" name="country" />
-      <IconButton type="reset" sx={iconButtonStyle}>
-        <ClearIcon />
-      </IconButton>
-      <IconButton type="submit" sx={iconButtonStyle}>
-        <SearchIcon />
-      </IconButton>
+      <Tooltip title="Clear" disableInteractive>
+        <IconButton type="reset" sx={iconButtonStyle}>
+          <ClearIcon />
+        </IconButton>
+      </Tooltip>
+      <Tooltip title="Search" disableInteractive>
+        <IconButton type="submit" sx={iconButtonStyle}>
+          <SearchIcon />
+        </IconButton>
+      </Tooltip>
     </Stack>
   );
 };

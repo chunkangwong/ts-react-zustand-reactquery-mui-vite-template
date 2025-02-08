@@ -3,6 +3,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import { SxProps, Theme } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
+import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 import dayjs from "dayjs";
 import { motion } from "motion/react";
@@ -86,12 +87,16 @@ export const SearchHistoryItem = ({
         </Typography>
       </Stack>
       <Stack direction="row" gap={1}>
-        <IconButton size="small" onClick={handleSearch} sx={iconButtonStyle}>
-          <SearchIcon />
-        </IconButton>
-        <IconButton size="small" onClick={handleDelete} sx={iconButtonStyle}>
-          <DeleteIcon />
-        </IconButton>
+        <Tooltip title="Search" disableInteractive>
+          <IconButton size="small" onClick={handleSearch} sx={iconButtonStyle}>
+            <SearchIcon />
+          </IconButton>
+        </Tooltip>
+        <Tooltip title="Delete" disableInteractive>
+          <IconButton size="small" onClick={handleDelete} sx={iconButtonStyle}>
+            <DeleteIcon />
+          </IconButton>
+        </Tooltip>
       </Stack>
     </Stack>
   );
