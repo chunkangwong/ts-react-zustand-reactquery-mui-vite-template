@@ -19,6 +19,10 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
+    lastQuery: {
+      city: "Johor",
+      country: "MY",
+    },
     onSearch: ({ city, country }) => {
       alert(`${city}, ${country}`);
     },
