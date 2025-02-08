@@ -3,7 +3,8 @@ import { useSearchHistoryStore } from "../store/searchHistoryStore";
 import type { WeatherResponse } from "../types";
 
 export const useQueryWeather = () => {
-  const { lastQuery, addItem } = useSearchHistoryStore();
+  const lastQuery = useSearchHistoryStore((state) => state.lastQuery);
+  const addItem = useSearchHistoryStore((state) => state.addItem);
 
   return useQuery({
     queryKey: ["queryWeather", lastQuery],
