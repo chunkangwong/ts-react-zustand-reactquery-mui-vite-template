@@ -20,7 +20,7 @@ export const WeatherHeader = ({ loading, weatherData }: WeatherHeaderProps) => {
       columnSpacing={1}
       position="relative"
     >
-      <Grid size={6}>
+      <Grid size={3}>
         <Stack gap={1}>
           <Typography>Today's Weather</Typography>
           {loading || !weatherData ? (
@@ -57,7 +57,7 @@ export const WeatherHeader = ({ loading, weatherData }: WeatherHeaderProps) => {
           )}
         </Stack>
       </Grid>
-      <Grid size={6}>
+      <Grid size={9}>
         <Stack
           direction={{
             xs: "column-reverse",
