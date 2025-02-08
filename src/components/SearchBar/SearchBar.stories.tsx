@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { SearchBarForm } from "./SearchBarForm";
+import { SearchBar } from "./SearchBar";
 
 const meta = {
-  title: "Components/SearchBarForm",
-  component: SearchBarForm,
+  title: "Components/SearchBar",
+  component: SearchBar,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ["autodocs"],
   parameters: {
@@ -12,7 +12,7 @@ const meta = {
     layout: "fullscreen",
   },
   args: {},
-} satisfies Meta<typeof SearchBarForm>;
+} satisfies Meta<typeof SearchBar>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
