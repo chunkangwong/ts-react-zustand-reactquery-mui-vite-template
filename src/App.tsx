@@ -1,5 +1,4 @@
 import Stack from "@mui/material/Stack";
-import backgroundImg from "./assets/background.png";
 import { Searchbar } from "./components/Searchbar/Searchbar";
 import { SearchHistory } from "./components/SearchHistory/SearchHistory";
 import { WeatherHeader } from "./components/WeatherHeader/WeatherHeader";
@@ -34,7 +33,7 @@ function App() {
       minHeight="100vh"
       pt={2}
       sx={{
-        backgroundImage: `url(${backgroundImg})`,
+        backgroundImage: `url(/bg-light.png)`,
         opacity: 0.6,
         backgroundSize: "auto,cover",
         backgroundPosition: "center",
