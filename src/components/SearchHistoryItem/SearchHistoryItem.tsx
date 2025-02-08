@@ -39,7 +39,7 @@ export const SearchHistoryItem = ({
       sx={{
         padding: "0 20px",
         height: "60px",
-        // backgroundColor: "bg.item",
+        backgroundColor: "bg.item",
         borderRadius: "16px",
         width: "100%",
         boxSizing: "border-box",

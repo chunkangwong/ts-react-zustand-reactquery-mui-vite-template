@@ -12,8 +12,11 @@ export const useSearchHistoryStore = create<BearStore>()(
   persist(
     (set, get) => ({
       searchHistoryItems: [],
-      addItem: (item) =>
-        set({ searchHistoryItems: get().searchHistoryItems.concat(item) }),
+      addItem: (item) => {
+        const historyItems = get().searchHistoryItems;
+        historyItems.unshift(item);
+        set({ searchHistoryItems: historyItems });
+      },
       deleteItem: (id) =>
         set({
           searchHistoryItems: get().searchHistoryItems.filter(
