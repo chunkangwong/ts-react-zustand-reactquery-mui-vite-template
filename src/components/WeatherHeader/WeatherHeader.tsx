@@ -1,9 +1,10 @@
 import Grid from "@mui/material/Grid2";
-import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import dayjs from "dayjs";
 import { WeatherResponse } from "../../types";
+import { MotionSkeleton } from "../MotionSkeleton";
+import { MotionTypography } from "../MotionTypography";
 
 interface WeatherHeaderProps {
   weatherData?: { datetime: number } & WeatherResponse;
@@ -23,18 +24,13 @@ export const WeatherHeader = ({ loading, weatherData }: WeatherHeaderProps) => {
           <Typography>Today's Weather</Typography>
           {loading || !weatherData ? (
             <>
-              <Skeleton
-                variant="text"
-                sx={{
-                  fontSize: "6rem",
-                }}
-              />
-              <Skeleton variant="text" />
-              <Skeleton variant="text" />
+              <MotionSkeleton variant="logo" />
+              <MotionSkeleton variant="text" />
+              <MotionSkeleton variant="text" />
             </>
           ) : (
             <>
-              <Typography
+              <MotionTypography
                 variant="h1"
                 sx={{
                   fontWeight: "bold",
@@ -42,20 +38,20 @@ export const WeatherHeader = ({ loading, weatherData }: WeatherHeaderProps) => {
                 }}
               >
                 {weatherData.main.temp}&deg;
-              </Typography>
-              <Typography>
+              </MotionTypography>
+              <MotionTypography>
                 H: {weatherData.main.temp_max}&deg; L:{" "}
                 {weatherData.main.temp_min}
                 &deg;
-              </Typography>
-              <Typography
+              </MotionTypography>
+              <MotionTypography
                 sx={{
                   fontWeight: "bold",
                   color: "font.info",
                 }}
               >
                 {weatherData.name}, {weatherData.sys.country}
-              </Typography>
+              </MotionTypography>
             </>
           )}
         </Stack>
@@ -79,16 +75,20 @@ export const WeatherHeader = ({ loading, weatherData }: WeatherHeaderProps) => {
         >
           {loading || !weatherData ? (
             <>
-              <Skeleton variant="text" width="100%" />
-              <Skeleton variant="text" width="100%" />
+              <MotionSkeleton variant="text" />
+              <MotionSkeleton variant="text" />
             </>
           ) : (
             <>
-              <Typography>
+              <MotionTypography>
                 {dayjs(weatherData.datetime).format("DD-MM-YYYY hh:mmA")}
-              </Typography>
-              <Typography>Humidity: {weatherData.main.humidity}%</Typography>
-              <Typography>{weatherData.weather?.[0].main}</Typography>
+              </MotionTypography>
+              <MotionTypography>
+                Humidity: {weatherData.main.humidity}%
+              </MotionTypography>
+              <MotionTypography>
+                {weatherData.weather?.[0].main}
+              </MotionTypography>
             </>
           )}
         </Stack>
