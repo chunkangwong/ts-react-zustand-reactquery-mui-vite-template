@@ -1,10 +1,10 @@
 import Grid from "@mui/material/Grid2";
+import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
+import Typography, { TypographyProps } from "@mui/material/Typography";
 import dayjs from "dayjs";
+import { motion } from "motion/react";
 import { WeatherResponse } from "../../types";
-import { MotionSkeleton } from "../MotionSkeleton";
-import { MotionTypography } from "../MotionTypography";
 
 interface WeatherHeaderProps {
   weatherData?: { datetime: number } & WeatherResponse;
@@ -113,5 +113,44 @@ export const WeatherHeader = ({ loading, weatherData }: WeatherHeaderProps) => {
         />
       )}
     </Grid>
+  );
+};
+
+const MotionTypography = (props: TypographyProps) => {
+  return (
+    <motion.div
+      key="text"
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <Typography {...props}>{props.children}</Typography>
+    </motion.div>
+  );
+};
+
+interface MotionSkeletonProps {
+  variant?: "text" | "logo";
+}
+
+const MotionSkeleton = ({ variant = "text" }: MotionSkeletonProps) => {
+  return (
+    <motion.div
+      key="skeleton"
+      initial={{ opacity: 1 }}
+      exit={{ opacity: 0, transition: { duration: 0.3 } }}
+      style={{
+        width: "100%",
+      }}
+    >
+      <Skeleton
+        variant="text"
+        sx={{
+          fontSize: variant === "logo" ? "6rem" : undefined,
+        }}
+        width="100%"
+      />
+    </motion.div>
   );
 };
