@@ -17,11 +17,7 @@ export const WeatherHeader = ({
 }: WeatherHeaderProps) => {
   return (
     <Grid container justifyContent="space-between" width="100%">
-      <Grid
-        size={{
-          md: 6,
-        }}
-      >
+      <Grid size={6}>
         <Typography>Today's Weather</Typography>
         <Typography
           variant="h1"

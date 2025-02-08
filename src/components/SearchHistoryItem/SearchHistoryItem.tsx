@@ -58,7 +58,7 @@ export const SearchHistoryItem = ({
         </Typography>
         <Typography
           variant="caption"
-          marginLeft="auto"
+          marginLeft={{ md: "auto" }}
           sx={{
             color: "font.itemInfo",
           }}
