@@ -1,20 +1,24 @@
 import { useSearchHistoryStore } from "../store/searchHistoryStore";
+import { FormValues } from "../types";
 import { SearchHistoryList } from "./SearchHistoryList/SearchHistoryList";
 
-export const SearchHistory = () => {
+interface SearchHistoryProps {
+  onSearch: (formValues: FormValues) => void;
+}
+
+export const SearchHistory = ({ onSearch }: SearchHistoryProps) => {
   const searchHistoryItems = useSearchHistoryStore(
     (state) => state.searchHistoryItems
   );
   const deleteAll = useSearchHistoryStore((state) => state.deleteAll);
   const deleteItem = useSearchHistoryStore((state) => state.deleteItem);
-  const setLastQuery = useSearchHistoryStore((state) => state.setLastQuery);
 
   return (
     <SearchHistoryList
       searchHistoryItems={searchHistoryItems}
       onDelete={deleteItem}
       onDeleteAll={deleteAll}
-      onSearch={setLastQuery}
+      onSearch={onSearch}
     />
   );
 };

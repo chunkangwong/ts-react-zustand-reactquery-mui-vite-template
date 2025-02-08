@@ -1,23 +1,17 @@
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
-import { FormValues, SearchHistoryItemType } from "../types";
+import { SearchHistoryItemType } from "../types";
 
 type BearStore = {
-  lastQuery: FormValues;
   searchHistoryItems: SearchHistoryItemType[];
   addItem: (item: SearchHistoryItemType) => void;
   deleteAll: () => void;
   deleteItem: (id: number) => void;
-  setLastQuery: (newQuery: FormValues) => void;
 };
 
 export const useSearchHistoryStore = create<BearStore>()(
   persist(
     (set, get) => ({
-      lastQuery: {
-        city: "",
-        country: "",
-      },
       searchHistoryItems: [],
       addItem: (item) => {
         const historyItems = get().searchHistoryItems;
@@ -33,10 +27,6 @@ export const useSearchHistoryStore = create<BearStore>()(
           searchHistoryItems: get().searchHistoryItems.filter(
             (item) => item.id !== id
           ),
-        }),
-      setLastQuery: (newQuery) =>
-        set({
-          lastQuery: newQuery,
         }),
     }),
     {

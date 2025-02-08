@@ -6,11 +6,10 @@ import TextField from "@mui/material/TextField";
 import { FormValues } from "../../types";
 
 interface SearchBarFormProps {
-  lastQuery: FormValues;
   onSearch: (formValues: FormValues) => void;
 }
 
-export const SearchBarForm = ({ lastQuery, onSearch }: SearchBarFormProps) => {
+export const SearchBarForm = ({ onSearch }: SearchBarFormProps) => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.currentTarget;
@@ -36,7 +35,6 @@ export const SearchBarForm = ({ lastQuery, onSearch }: SearchBarFormProps) => {
         variant="filled"
         required
         name="city"
-        defaultValue={lastQuery.city}
         autoFocus
         slotProps={{
           input: {
@@ -56,7 +54,6 @@ export const SearchBarForm = ({ lastQuery, onSearch }: SearchBarFormProps) => {
         variant="filled"
         required
         name="country"
-        defaultValue={lastQuery.country}
         slotProps={{
           input: {
             disableUnderline: true,
