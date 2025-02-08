@@ -2,6 +2,7 @@ import Stack from "@mui/material/Stack";
 import { useEffect } from "react";
 import { SearchBar } from "./components/SearchBar/SearchBar";
 import { SearchHistory } from "./components/SearchHistory";
+import { ThemeProvider } from "./components/ThemeProvider";
 import { WeatherHeader } from "./components/WeatherHeader/WeatherHeader";
 import { useQueryWeather } from "./hooks/useQueryWeather";
 import { useSearchHistoryStore } from "./store/searchHistoryStore";
@@ -40,7 +41,7 @@ function App() {
   };
 
   return (
-    <>
+    <ThemeProvider>
       <SearchBar onSearch={handleSearch} />
       <Stack
         alignItems="center"
@@ -62,7 +63,7 @@ function App() {
         />
         <SearchHistory onSearch={handleSearch} />
       </Stack>
-    </>
+    </ThemeProvider>
   );
 }
 

@@ -6,25 +6,3 @@ body,
   margin: 0;
   padding: 0;
 }
-
-body {
-  background-image: url("bg-light.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    background-image: url("bg-dark.png");
-  }
-}
-
-#root {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
