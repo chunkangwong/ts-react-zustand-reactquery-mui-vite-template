@@ -1,26 +1,30 @@
 html,
 body,
 #root {
-  height: 100vh;
+  height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
 }
 
-#root {
-  background-image: url('bg-light.png');
+body {
+  background-image: url("bg-light.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: center;
-  padding-top: 2rem;
+  background-attachment: fixed;
 }
 
 @media (prefers-color-scheme: dark) {
-  #root {
-    background-image: url('bg-dark.png');
+  body {
+    background-image: url("bg-dark.png");
   }
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }

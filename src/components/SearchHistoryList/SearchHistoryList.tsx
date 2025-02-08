@@ -31,7 +31,7 @@ export const SearchHistoryList = ({
     >
       <Stack direction="row" justifyContent="space-between" alignItems="center">
         <Typography>Search History</Typography>
-        <IconButton onClick={onDeleteAll}>
+        <IconButton size="small" onClick={onDeleteAll}>
           <DeleteSweepIcon />
         </IconButton>
       </Stack>

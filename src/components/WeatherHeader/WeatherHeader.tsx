@@ -1,3 +1,4 @@
+import { useMediaQuery, useTheme } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
@@ -12,6 +13,9 @@ interface WeatherHeaderProps {
 }
 
 export const WeatherHeader = ({ loading, weatherData }: WeatherHeaderProps) => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
   return (
     <Grid
       container
@@ -19,6 +23,14 @@ export const WeatherHeader = ({ loading, weatherData }: WeatherHeaderProps) => {
       width="100%"
       columnSpacing={1}
       position="relative"
+      sx={{
+        "& p": {
+          typography: {
+            md: "body1",
+            xs: "body2",
+          },
+        },
+      }}
     >
       <Grid size={3}>
         <Stack gap={1}>
@@ -32,7 +44,7 @@ export const WeatherHeader = ({ loading, weatherData }: WeatherHeaderProps) => {
           ) : (
             <>
               <MotionTypography
-                variant="h1"
+                variant={isMobile ? "h2" : "h1"}
                 sx={{
                   fontWeight: "bold",
                   color: "font.temp",

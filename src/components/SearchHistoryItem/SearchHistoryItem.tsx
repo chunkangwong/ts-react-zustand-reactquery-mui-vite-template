@@ -62,24 +62,34 @@ export const SearchHistoryItem = ({
           sx: "column",
         }}
       >
-        <Typography>
+        <Typography
+          sx={{
+            typography: {
+              md: "body1",
+              xs: "body2",
+            },
+          }}
+        >
           {city}, {country}
         </Typography>
         <Typography
-          variant="caption"
           marginLeft={{ md: "auto" }}
           sx={{
             color: "font.itemInfo",
+            typography: {
+              md: "body2",
+              xs: "caption",
+            },
           }}
         >
           {dayjs(datetime).format("DD-MM-YYYY hh:mmA")}
         </Typography>
       </Stack>
       <Stack direction="row" gap={1}>
-        <IconButton onClick={handleSearch} sx={iconButtonStyle}>
+        <IconButton size="small" onClick={handleSearch} sx={iconButtonStyle}>
           <SearchIcon />
         </IconButton>
-        <IconButton onClick={handleDelete} sx={iconButtonStyle}>
+        <IconButton size="small" onClick={handleDelete} sx={iconButtonStyle}>
           <DeleteIcon />
         </IconButton>
       </Stack>

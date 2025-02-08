@@ -1,9 +1,9 @@
 import ClearIcon from "@mui/icons-material/Clear";
 import SearchIcon from "@mui/icons-material/Search";
-import { SxProps, Theme } from "@mui/material";
+import { SxProps, Theme, useMediaQuery, useTheme } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
-import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
+import TextField from "@mui/material/TextField";
 import { FormValues } from "../../types";
 
 interface SearchBarProps {
@@ -55,13 +55,16 @@ interface SearchBarTextFieldProps {
 }
 
 const SearchBarTextField = ({ label, name }: SearchBarTextFieldProps) => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
   return (
     <TextField
       label={label}
       variant="filled"
       required
       name={name}
-      size="small"
+      size={isMobile ? "small" : "medium"}
       slotProps={{
         input: {
           disableUnderline: true,
