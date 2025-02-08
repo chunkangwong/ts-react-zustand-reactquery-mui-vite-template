@@ -8,6 +8,7 @@ declare module "@mui/material/styles" {
       textField: string;
       searchIconButton: string;
       itemIconButton: string;
+      themeToggleButton: string;
     };
     border: {
       itemIconButton: string;
@@ -26,6 +27,7 @@ declare module "@mui/material/styles" {
       textField: string;
       searchIconButton: string;
       itemIconButton: string;
+      themeToggleButton: string;
     };
     border?: {
       itemIconButton: string;
@@ -48,6 +50,7 @@ export const lightTheme = createTheme({
       textField: "rgba(255, 255, 255, 0.2)",
       searchIconButton: "rgba(108, 64, 181, 1)",
       itemIconButton: "white",
+      themeToggleButton: "rgba(108, 64, 181, 1)",
     },
     border: {
       itemIconButton: "white",
@@ -70,6 +73,7 @@ export const darkTheme = createTheme({
       textField: "rgba(26, 26, 26, 0.5)",
       searchIconButton: "rgba(40, 18, 77, 1)",
       itemIconButton: "transparent",
+      themeToggleButton: "rgba(40, 18, 77, 1)",
     },
     border: {
       itemIconButton: "rgba(255, 255, 255, 0.4)",

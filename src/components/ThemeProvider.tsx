@@ -4,6 +4,7 @@ import { ThemeProvider as MUIThemeProvider } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import Fab from "@mui/material/Fab";
 import Stack from "@mui/material/Stack";
+import Tooltip from "@mui/material/Tooltip";
 import { useDarkMode } from "../hooks/useDarkMode";
 import { darkTheme, lightTheme } from "../theme";
 
@@ -17,13 +18,24 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   return (
     <MUIThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <CssBaseline />
-      <Fab
-        color="primary"
-        onClick={toggle}
-        style={{ position: "fixed", bottom: 20, right: 20 }}
-      >
-        {darkMode ? <Brightness7 /> : <Brightness4 />}
-      </Fab>
+      <Tooltip title={darkMode ? "Light" : "Dark"}>
+        <Fab
+          color="primary"
+          onClick={toggle}
+          sx={{
+            position: "fixed",
+            bottom: 20,
+            right: 20,
+            backgroundColor: "bg.themeToggleButton",
+            color: "white",
+            "&:hover": {
+              backgroundColor: "rgba(255,255,255,0.08)",
+            },
+          }}
+        >
+          {darkMode ? <Brightness7 /> : <Brightness4 />}
+        </Fab>
+      </Tooltip>
       <Stack
         height="100%"
         alignItems="center"
