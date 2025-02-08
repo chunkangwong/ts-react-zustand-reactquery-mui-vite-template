@@ -1,7 +1,7 @@
 import { useTheme } from "@mui/material";
 import Stack from "@mui/material/Stack";
 import { Searchbar } from "./components/Searchbar/Searchbar";
-import { SearchHistoryList } from "./components/SearchHistoryList/SearchHistoryList";
+import { SearchHistory } from "./components/SearchHistory";
 import { WeatherHeader } from "./components/WeatherHeader/WeatherHeader";
 import { useQueryWeather } from "./hooks/useQueryWeather";
 import { useSearchHistoryStore } from "./store/searchHistoryStore";
@@ -13,7 +13,7 @@ const backgroundImageConfig = {
 };
 
 function App() {
-  const { addItem, deleteItem, searchHistoryItems } = useSearchHistoryStore();
+  const { addItem } = useSearchHistoryStore();
 
   const queryWeather = useQueryWeather();
 
@@ -27,10 +27,6 @@ function App() {
       datetime: weatherData.datetime,
       id: weatherData.datetime,
     });
-  };
-
-  const handleDelete = (id: number) => {
-    deleteItem(id);
   };
 
   return (
@@ -65,11 +61,7 @@ function App() {
           weatherData={queryWeather.data}
           loading={queryWeather.isPending}
         />
-        <SearchHistoryList
-          searchHistoryItems={searchHistoryItems}
-          onDelete={handleDelete}
-          onSearch={handleSearch}
-        />
+        <SearchHistory />
       </Stack>
     </Stack>
   );
