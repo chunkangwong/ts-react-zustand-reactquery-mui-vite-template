@@ -1,6 +1,6 @@
 import { useTheme } from "@mui/material";
 import Stack from "@mui/material/Stack";
-import { Searchbar } from "./components/Searchbar/Searchbar";
+import { SearchBarForm } from "./components/SearchBarForm/SearchBarForm";
 import { SearchHistory } from "./components/SearchHistory";
 import { WeatherHeader } from "./components/WeatherHeader/WeatherHeader";
 import { useQueryWeather } from "./hooks/useQueryWeather";
@@ -42,7 +42,7 @@ function App() {
         backgroundPosition: "center",
       }}
     >
-      <Searchbar onSearch={handleSearch} />
+      <SearchBarForm onSearch={handleSearch} />
       <Stack
         alignItems="center"
         justifyContent="center"

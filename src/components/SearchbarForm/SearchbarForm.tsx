@@ -5,11 +5,11 @@ import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import { FormValues } from "../../types";
 
-interface SearchbarProps {
+interface SearchBarFormProps {
   onSearch: (formValues: FormValues) => void;
 }
 
-export const Searchbar = ({ onSearch }: SearchbarProps) => {
+export const SearchBarForm = ({ onSearch }: SearchBarFormProps) => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.currentTarget;
