@@ -40,6 +40,7 @@ export const Default: Story = {
       },
     ],
     onDelete: () => null,
+    onDeleteAll: () => null,
     onSearch: () => null,
   },
 };

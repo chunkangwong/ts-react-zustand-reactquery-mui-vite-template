@@ -1,3 +1,5 @@
+import DeleteSweepIcon from "@mui/icons-material/DeleteSweep";
+import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { SearchHistoryItemType } from "../../types";
@@ -6,12 +8,14 @@ import { SearchHistoryItem } from "../SearchHistoryItem/SearchHistoryItem";
 interface SearchHistoryListProps {
   searchHistoryItems: SearchHistoryItemType[];
   onDelete: (id: number) => void;
+  onDeleteAll: () => void;
   onSearch: (formValues: { city: string; country: string }) => void;
 }
 
 export const SearchHistoryList = ({
   searchHistoryItems,
   onDelete,
+  onDeleteAll,
   onSearch,
 }: SearchHistoryListProps) => {
   return (
@@ -25,7 +29,12 @@ export const SearchHistoryList = ({
         mt: 2,
       }}
     >
-      <Typography>Search History</Typography>
+      <Stack direction="row" justifyContent="space-between" alignItems="center">
+        <Typography>Search History</Typography>
+        <IconButton onClick={onDeleteAll}>
+          <DeleteSweepIcon />
+        </IconButton>
+      </Stack>
       {searchHistoryItems.map((searchHistoryItem) => (
         <SearchHistoryItem
           key={searchHistoryItem.id}

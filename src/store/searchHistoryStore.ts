@@ -6,6 +6,7 @@ type BearStore = {
   lastQuery: FormValues;
   searchHistoryItems: SearchHistoryItemType[];
   addItem: (item: SearchHistoryItemType) => void;
+  deleteAll: () => void;
   deleteItem: (id: number) => void;
   setLastQuery: (newQuery: FormValues) => void;
 };
@@ -23,6 +24,10 @@ export const useSearchHistoryStore = create<BearStore>()(
         historyItems.unshift(item);
         set({ searchHistoryItems: historyItems });
       },
+      deleteAll: () =>
+        set({
+          searchHistoryItems: [],
+        }),
       deleteItem: (id) =>
         set({
           searchHistoryItems: get().searchHistoryItems.filter(

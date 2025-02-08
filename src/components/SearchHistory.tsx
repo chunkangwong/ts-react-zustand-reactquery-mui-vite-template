@@ -5,6 +5,7 @@ export const SearchHistory = () => {
   const searchHistoryItems = useSearchHistoryStore(
     (state) => state.searchHistoryItems
   );
+  const deleteAll = useSearchHistoryStore((state) => state.deleteAll);
   const deleteItem = useSearchHistoryStore((state) => state.deleteItem);
   const setLastQuery = useSearchHistoryStore((state) => state.setLastQuery);
 
@@ -12,6 +13,7 @@ export const SearchHistory = () => {
     <SearchHistoryList
       searchHistoryItems={searchHistoryItems}
       onDelete={deleteItem}
+      onDeleteAll={deleteAll}
       onSearch={setLastQuery}
     />
   );
