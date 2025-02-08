@@ -2,7 +2,7 @@ import { useTheme } from "@mui/material";
 import Stack from "@mui/material/Stack";
 import { SearchBarForm } from "./components/SearchBarForm/SearchBarForm";
 import { SearchHistory } from "./components/SearchHistory";
-import { WeatherHeaderLayout } from "./components/WeatherHeaderLayout/WeatherHeaderLayout";
+import { WeatherHeader } from "./components/WeatherHeader/WeatherHeader";
 import { useQueryWeather } from "./hooks/useQueryWeather";
 import { useSearchHistoryStore } from "./store/searchHistoryStore";
 import { FormValues } from "./types";
@@ -66,7 +66,7 @@ function App() {
           borderStyle: "solid",
         }}
       >
-        <WeatherHeaderLayout
+        <WeatherHeader
           loading={queryWeather.isPending}
           weatherData={queryWeather.data}
         />
