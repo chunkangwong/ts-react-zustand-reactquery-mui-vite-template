@@ -2,10 +2,7 @@ import { useTheme } from "@mui/material";
 import Stack from "@mui/material/Stack";
 import { SearchBar } from "./components/SearchBar";
 import { SearchHistory } from "./components/SearchHistory";
-import { WeatherHeaderLayout } from "./components/WeatherHeaderLayout/WeatherHeaderLayout";
-import { useQueryWeather } from "./hooks/useQueryWeather";
-import { useSearchHistoryStore } from "./store/searchHistoryStore";
-import { FormValues } from "./types";
+import { WeatherHeader } from "./components/WeatherHeader";
 
 const backgroundImageConfig = {
   light: "/bg-light.png",
@@ -13,21 +10,7 @@ const backgroundImageConfig = {
 };
 
 function App() {
-  const { addItem } = useSearchHistoryStore();
-
-  const queryWeather = useQueryWeather();
-
   const theme = useTheme();
-
-  const handleSearch = async (formValues: FormValues) => {
-    const weatherData = await queryWeather.mutateAsync(formValues);
-    addItem({
-      city: weatherData.name,
-      country: weatherData.sys.country,
-      datetime: weatherData.datetime,
-      id: weatherData.datetime,
-    });
-  };
 
   return (
     <Stack
@@ -57,10 +40,7 @@ function App() {
           borderStyle: "solid",
         }}
       >
-        <WeatherHeaderLayout
-          weatherData={queryWeather.data}
-          loading={queryWeather.isPending}
-        />
+        <WeatherHeader />
         <SearchHistory />
       </Stack>
     </Stack>

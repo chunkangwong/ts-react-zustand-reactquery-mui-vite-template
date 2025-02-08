@@ -3,11 +3,7 @@ import { SearchHistoryList } from "./SearchHistoryList/SearchHistoryList";
 
 export const SearchHistory = () => {
   const { searchHistoryItems, deleteItem, setLastQuery } =
-    useSearchHistoryStore((state) => ({
-      searchHistoryItems: state.searchHistoryItems,
-      deleteItem: state.deleteItem,
-      setLastQuery: state.setLastQuery,
-    }));
+    useSearchHistoryStore();
 
   return (
     <SearchHistoryList

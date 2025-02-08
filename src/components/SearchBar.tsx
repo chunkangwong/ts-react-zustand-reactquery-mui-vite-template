@@ -2,7 +2,7 @@ import { useSearchHistoryStore } from "../store/searchHistoryStore";
 import { SearchBarForm } from "./SearchBarForm/SearchBarForm";
 
 export const SearchBar = () => {
-  const setLastQuery = useSearchHistoryStore((state) => state.setLastQuery);
+  const { lastQuery, setLastQuery } = useSearchHistoryStore();
 
-  return <SearchBarForm onSearch={setLastQuery} />;
+  return <SearchBarForm lastQuery={lastQuery} onSearch={setLastQuery} />;
 };
