@@ -5,5 +5,22 @@ body,
   width: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+}
+
+#root {
+  background-image: url('bg-light.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding-top: 2rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  #root {
+    background-image: url('bg-dark.png');
+  }
 }

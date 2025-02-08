@@ -1,21 +1,13 @@
-import { useTheme } from "@mui/material";
 import Stack from "@mui/material/Stack";
+import { useEffect } from "react";
 import { SearchBar } from "./components/SearchBar/SearchBar";
 import { SearchHistory } from "./components/SearchHistory";
 import { WeatherHeader } from "./components/WeatherHeader/WeatherHeader";
 import { useQueryWeather } from "./hooks/useQueryWeather";
 import { useSearchHistoryStore } from "./store/searchHistoryStore";
 import { FormValues } from "./types";
-import { useEffect } from "react";
-
-const backgroundImageConfig = {
-  light: "/bg-light.png",
-  dark: "/bg-dark.png",
-};
 
 function App() {
-  const theme = useTheme();
-
   const addItem = useSearchHistoryStore((state) => state.addItem);
 
   const queryWeather = useQueryWeather();
@@ -39,18 +31,7 @@ function App() {
   };
 
   return (
-    <Stack
-      alignItems="center"
-      justifyContent="center"
-      width="100%"
-      minHeight="100vh"
-      pt={2}
-      sx={{
-        backgroundImage: `url(${backgroundImageConfig[theme.palette.mode]})`,
-        backgroundSize: "auto,cover",
-        backgroundPosition: "center",
-      }}
-    >
+    <>
       <SearchBar onSearch={handleSearch} />
       <Stack
         alignItems="center"
@@ -72,7 +53,7 @@ function App() {
         />
         <SearchHistory onSearch={handleSearch} />
       </Stack>
-    </Stack>
+    </>
   );
 }
 
