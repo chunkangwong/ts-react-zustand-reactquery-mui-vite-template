@@ -1,17 +1,25 @@
 import DeleteIcon from "@mui/icons-material/Delete";
 import SearchIcon from "@mui/icons-material/Search";
+import { SxProps, Theme } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import dayjs from "dayjs";
-import { type SearchHistoryItemType } from "../../types";
 import { motion } from "motion/react";
+import { type SearchHistoryItemType } from "../../types";
 
 interface SearchHistoryItemProps {
   searchHistoryItem: SearchHistoryItemType;
   onSearch: (formValues: { city: string; country: string }) => void;
   onDelete: (id: number) => void;
 }
+
+const iconButtonStyle: SxProps<Theme> = {
+  backgroundColor: "bg.itemIconButton",
+  borderWidth: "2px",
+  borderStyle: "solid",
+  borderColor: "border.itemIconButton",
+};
 
 export const SearchHistoryItem = ({
   searchHistoryItem: { city, country, datetime, id },
@@ -68,26 +76,10 @@ export const SearchHistoryItem = ({
         </Typography>
       </Stack>
       <Stack direction="row" gap={1}>
-        <IconButton
-          onClick={handleSearch}
-          sx={{
-            backgroundColor: "bg.itemIconButton",
-            borderWidth: "2px",
-            borderStyle: "solid",
-            borderColor: "border.itemIconButton",
-          }}
-        >
+        <IconButton onClick={handleSearch} sx={iconButtonStyle}>
           <SearchIcon />
         </IconButton>
-        <IconButton
-          onClick={handleDelete}
-          sx={{
-            backgroundColor: "bg.itemIconButton",
-            borderWidth: "2px",
-            borderStyle: "solid",
-            borderColor: "border.itemIconButton",
-          }}
-        >
+        <IconButton onClick={handleDelete} sx={iconButtonStyle}>
           <DeleteIcon />
         </IconButton>
       </Stack>
