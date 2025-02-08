@@ -3,7 +3,6 @@ import SearchIcon from "@mui/icons-material/Search";
 import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
-import { useForm } from "react-hook-form";
 import { FormValues } from "../../types";
 
 interface SearchbarProps {
@@ -11,21 +10,14 @@ interface SearchbarProps {
 }
 
 export const Searchbar = ({ onSearch }: SearchbarProps) => {
-  const form = useForm<FormValues>({
-    defaultValues: {
-      city: "",
-      country: "",
-    },
-  });
-
-  const { city, country } = form.watch();
-
-  const handleSubmit = form.handleSubmit(({ city, country }) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const city = formData.get("city") as string;
+    const country = formData.get("country") as string;
     onSearch({ city, country });
-    form.reset();
-  });
 
-  const handleClear = () => {
     form.reset();
   };
 
@@ -41,14 +33,9 @@ export const Searchbar = ({ onSearch }: SearchbarProps) => {
       <TextField
         label="City"
         variant="filled"
-        {...form.register("city", {
-          required: {
-            value: true,
-            message: "City is required",
-          },
-        })}
-        error={!!form.formState.errors.city}
-        helperText={!!form.formState.errors.city?.message}
+        required
+        name="city"
+        autoFocus
         slotProps={{
           input: {
             disableUnderline: true,
@@ -65,11 +52,8 @@ export const Searchbar = ({ onSearch }: SearchbarProps) => {
       <TextField
         label="Country"
         variant="filled"
-        {...form.register("country", {
-          required: true,
-        })}
-        error={!!form.formState.errors.country}
-        helperText={!!form.formState.errors.country?.message}
+        required
+        name="country"
         slotProps={{
           input: {
             disableUnderline: true,
@@ -83,22 +67,19 @@ export const Searchbar = ({ onSearch }: SearchbarProps) => {
           flexGrow: 1,
         }}
       />
-      {(city || country) && (
-        <IconButton
-          type="button"
-          onClick={handleClear}
-          sx={{
-            borderRadius: { xs: "8px", md: "25%" },
-            backgroundColor: "bg.searchIconButton",
-            color: "white",
-            "&:hover": {
-              backgroundColor: "rgba(108, 64, 181, 0.6)",
-            },
-          }}
-        >
-          <ClearIcon />
-        </IconButton>
-      )}
+      <IconButton
+        type="reset"
+        sx={{
+          borderRadius: { xs: "8px", md: "25%" },
+          backgroundColor: "bg.searchIconButton",
+          color: "white",
+          "&:hover": {
+            backgroundColor: "rgba(108, 64, 181, 0.6)",
+          },
+        }}
+      >
+        <ClearIcon />
+      </IconButton>
       <IconButton
         type="submit"
         sx={{
