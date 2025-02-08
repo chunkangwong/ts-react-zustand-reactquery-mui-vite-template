@@ -6,12 +6,15 @@ import { WeatherResponse } from "../../types";
 import { MotionSkeleton } from "../MotionSkeleton";
 import { MotionTypography } from "../MotionTypography";
 
-interface WeatherHeaderProps {
+interface WeatherHeaderLayoutProps {
   weatherData?: { datetime: number } & WeatherResponse;
   loading?: boolean;
 }
 
-export const WeatherHeader = ({ loading, weatherData }: WeatherHeaderProps) => {
+export const WeatherHeaderLayout = ({
+  loading,
+  weatherData,
+}: WeatherHeaderLayoutProps) => {
   return (
     <Grid
       container

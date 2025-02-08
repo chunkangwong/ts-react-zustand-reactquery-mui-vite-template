@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { WeatherHeader } from "./WeatherHeader";
+import { WeatherHeaderLayout } from "./WeatherHeaderLayout";
 
 const meta = {
-  title: "Components/WeatherHeader",
-  component: WeatherHeader,
+  title: "Components/WeatherHeaderLayout",
+  component: WeatherHeaderLayout,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ["autodocs"],
   parameters: {
@@ -12,7 +12,7 @@ const meta = {
     layout: "fullscreen",
   },
   args: {},
-} satisfies Meta<typeof WeatherHeader>;
+} satisfies Meta<typeof WeatherHeaderLayout>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
