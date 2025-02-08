@@ -19,17 +19,39 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    datetime: new Date().getTime(),
-    main: {
-      humidity: 58,
-      temp: 26,
-      temp_max: 29,
-      temp_min: 26,
+    weatherData: {
+      datetime: new Date().getTime(),
+      main: {
+        humidity: 58,
+        temp: 26,
+        temp_max: 29,
+        temp_min: 26,
+      },
+      name: "Johor",
+      sys: {
+        country: "MY",
+      },
+      weather: [{ main: "Clouds" }],
     },
-    name: "Johor",
-    sys: {
-      country: "MY",
+  },
+};
+
+export const Loading: Story = {
+  args: {
+    loading: true,
+    weatherData: {
+      datetime: new Date().getTime(),
+      main: {
+        humidity: 58,
+        temp: 26,
+        temp_max: 29,
+        temp_min: 26,
+      },
+      name: "Johor",
+      sys: {
+        country: "MY",
+      },
+      weather: [{ main: "Clouds" }],
     },
-    weather: [{ main: "Clouds" }],
   },
 };

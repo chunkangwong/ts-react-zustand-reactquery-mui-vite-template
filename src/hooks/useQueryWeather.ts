@@ -16,6 +16,10 @@ export const useQueryWeather = () =>
 
       const weatherData: WeatherResponse = await response.json();
 
+      weatherData.main.temp = Math.round(weatherData.main.temp);
+      weatherData.main.temp_max = Math.round(weatherData.main.temp_max);
+      weatherData.main.temp_min = Math.round(weatherData.main.temp_min);
+
       const datetime = new Date().getTime();
       return { ...weatherData, datetime: datetime };
     },

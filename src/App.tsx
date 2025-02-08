@@ -61,7 +61,10 @@ function App() {
           borderStyle: "solid",
         }}
       >
-        {queryWeather.data && <WeatherHeader {...queryWeather.data} />}
+        <WeatherHeader
+          weatherData={queryWeather.data}
+          loading={queryWeather.isPending}
+        />
         <SearchHistory
           searchHistoryItems={searchHistoryItems}
           onDelete={handleDelete}
