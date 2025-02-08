@@ -14,7 +14,7 @@ export interface WeatherResponse {
     humidity: number; // Humidity percentage
   };
   weather: {
-    main: string; // Weather condition (e.g., clouds, rain)
+    main: "Clouds" | "Rain"; // Weather condition (e.g., clouds, rain)
   }[];
   sys: {
     country: string; // Country code

@@ -18,6 +18,7 @@ export const WeatherHeader = ({ loading, weatherData }: WeatherHeaderProps) => {
       justifyContent="space-between"
       width="100%"
       columnSpacing={1}
+      position="relative"
     >
       <Grid size={6}>
         <Stack gap={1}>
@@ -93,6 +94,24 @@ export const WeatherHeader = ({ loading, weatherData }: WeatherHeaderProps) => {
           )}
         </Stack>
       </Grid>
+      {weatherData && (
+        <img
+          src={
+            weatherData.weather?.[0].main === "Clouds"
+              ? "/cloud.png"
+              : "/sun.png"
+          }
+          alt="Weather Icon"
+          style={{
+            width: "300px",
+            height: "auto",
+            position: "absolute",
+            top: "-150px",
+            right: "-30px",
+            maxWidth: "auto",
+          }}
+        />
+      )}
     </Grid>
   );
 };

@@ -47,7 +47,7 @@ function App() {
         justifyContent="center"
         width={{ md: "50%", xs: "80%" }}
         p={4}
-        mt={2}
+        mt={14}
         sx={{
           backgroundColor: "bg.panel",
           borderRadius: { xs: "24px", md: "40px" },
