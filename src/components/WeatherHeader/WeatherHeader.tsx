@@ -1,10 +1,10 @@
 import { useMediaQuery, useTheme } from "@mui/material";
 import Grid from "@mui/material/Grid2";
-import Skeleton from "@mui/material/Skeleton";
+import Skeleton, { SkeletonProps } from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
 import Typography, { TypographyProps } from "@mui/material/Typography";
 import dayjs from "dayjs";
-import { motion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import { WeatherResponse } from "../../types";
 
 interface WeatherHeaderProps {
@@ -37,9 +37,30 @@ export const WeatherHeader = ({ loading, weatherData }: WeatherHeaderProps) => {
           <Typography>Today's Weather</Typography>
           {loading || !weatherData ? (
             <>
-              <MotionSkeleton variant="logo" />
-              <MotionSkeleton variant="text" />
-              <MotionSkeleton variant="text" />
+              <MotionSkeleton
+                sx={{
+                  typography: {
+                    md: "h1",
+                    xs: "h2",
+                  },
+                }}
+              />
+              <MotionSkeleton
+                sx={{
+                  typography: {
+                    md: "body1",
+                    xs: "body2",
+                  },
+                }}
+              />
+              <MotionSkeleton
+                sx={{
+                  typography: {
+                    md: "body1",
+                    xs: "body2",
+                  },
+                }}
+              />
             </>
           ) : (
             <>
@@ -88,8 +109,22 @@ export const WeatherHeader = ({ loading, weatherData }: WeatherHeaderProps) => {
         >
           {loading || !weatherData ? (
             <>
-              <MotionSkeleton variant="text" />
-              <MotionSkeleton variant="text" />
+              <MotionSkeleton
+                sx={{
+                  typography: {
+                    md: "body1",
+                    xs: "body2",
+                  },
+                }}
+              />
+              <MotionSkeleton
+                sx={{
+                  typography: {
+                    md: "body1",
+                    xs: "body2",
+                  },
+                }}
+              />
             </>
           ) : (
             <>
@@ -106,24 +141,30 @@ export const WeatherHeader = ({ loading, weatherData }: WeatherHeaderProps) => {
           )}
         </Stack>
       </Grid>
-      {weatherData && (
-        <img
-          src={
-            weatherData.weather?.[0].main === "Clouds"
-              ? "/cloud.png"
-              : "/sun.png"
-          }
-          alt="Weather Icon"
-          style={{
-            width: "300px",
-            height: "auto",
-            position: "absolute",
-            top: "-150px",
-            right: "-30px",
-            maxWidth: "auto",
-          }}
-        />
-      )}
+      <AnimatePresence>
+        {weatherData && (
+          <motion.img
+            src={
+              weatherData.weather?.[0].main === "Clouds"
+                ? "/cloud.png"
+                : "/sun.png"
+            }
+            alt="Weather Icon"
+            style={{
+              width: "300px",
+              height: "auto",
+              position: "absolute",
+              top: "-150px",
+              right: "-30px",
+              maxWidth: "auto",
+            }}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+          />
+        )}
+      </AnimatePresence>
     </Grid>
   );
 };
@@ -142,11 +183,7 @@ const MotionTypography = (props: TypographyProps) => {
   );
 };
 
-interface MotionSkeletonProps {
-  variant?: "text" | "logo";
-}
-
-const MotionSkeleton = ({ variant = "text" }: MotionSkeletonProps) => {
+const MotionSkeleton = (props: SkeletonProps) => {
   return (
     <motion.div
       key="skeleton"
@@ -156,13 +193,7 @@ const MotionSkeleton = ({ variant = "text" }: MotionSkeletonProps) => {
         width: "100%",
       }}
     >
-      <Skeleton
-        variant="text"
-        sx={{
-          fontSize: variant === "logo" ? "6rem" : undefined,
-        }}
-        width="100%"
-      />
+      <Skeleton variant="text" width="100%" {...props} />
     </motion.div>
   );
 };
