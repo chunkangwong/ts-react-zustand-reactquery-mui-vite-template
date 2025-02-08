@@ -1,4 +1,3 @@
-import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { SearchHistoryItemType } from "../../types";
@@ -20,16 +19,13 @@ export const SearchHistory = ({
       gap={2}
       sx={{
         borderRadius: "16px",
-        backgroundColor: "rgba(255, 255, 255, 0.2)",
+        backgroundColor: "bg.panel",
         padding: 2,
         width: "100%",
         mt: 2,
       }}
     >
-      <Stack>
-        <Typography>Search History</Typography>
-        <IconButton></IconButton>
-      </Stack>
+      <Typography>Search History</Typography>
       {searchHistoryItems.map((searchHistoryItem) => (
         <SearchHistoryItem
           key={searchHistoryItem.id}

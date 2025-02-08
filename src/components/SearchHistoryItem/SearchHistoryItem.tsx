@@ -39,7 +39,7 @@ export const SearchHistoryItem = ({
       sx={{
         padding: "0 20px",
         height: "60px",
-        backgroundColor: "rgba(255, 255, 255, 0.4)",
+        // backgroundColor: "bg.item",
         borderRadius: "16px",
         width: "100%",
         boxSizing: "border-box",
@@ -58,8 +58,9 @@ export const SearchHistoryItem = ({
         </Typography>
         <Typography
           variant="caption"
-          marginLeft={{
-            md: "auto",
+          marginLeft="auto"
+          sx={{
+            color: "font.itemInfo",
           }}
         >
           {dayjs(datetime).format("DD-MM-YYYY hh:mmA")}
@@ -69,7 +70,10 @@ export const SearchHistoryItem = ({
         <IconButton
           onClick={handleSearch}
           sx={{
-            backgroundColor: "white",
+            backgroundColor: "bg.itemIconButton",
+            borderWidth: "2px",
+            borderStyle: "solid",
+            borderColor: "border.itemIconButton",
           }}
         >
           <SearchIcon />
@@ -77,7 +81,10 @@ export const SearchHistoryItem = ({
         <IconButton
           onClick={handleDelete}
           sx={{
-            backgroundColor: "white",
+            backgroundColor: "bg.itemIconButton",
+            borderWidth: "2px",
+            borderStyle: "solid",
+            borderColor: "border.itemIconButton",
           }}
         >
           <DeleteIcon />

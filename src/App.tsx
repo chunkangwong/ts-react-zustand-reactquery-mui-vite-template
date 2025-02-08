@@ -1,3 +1,4 @@
+import { useTheme } from "@mui/material";
 import Stack from "@mui/material/Stack";
 import { Searchbar } from "./components/Searchbar/Searchbar";
 import { SearchHistory } from "./components/SearchHistory/SearchHistory";
@@ -6,10 +7,17 @@ import { useQueryWeather } from "./hooks/useQueryWeather";
 import { useSearchHistoryStore } from "./store/searchHistoryStore";
 import { FormValues } from "./types";
 
+const backgroundImageConfig = {
+  light: "/bg-light.png",
+  dark: "/bg-dark.png",
+};
+
 function App() {
   const { addItem, deleteItem, searchHistoryItems } = useSearchHistoryStore();
 
   const queryWeather = useQueryWeather();
+
+  const theme = useTheme();
 
   const handleSearch = async (formValues: FormValues) => {
     const weatherData = await queryWeather.mutateAsync(formValues);
@@ -33,8 +41,7 @@ function App() {
       minHeight="100vh"
       pt={2}
       sx={{
-        backgroundImage: `url(/bg-light.png)`,
-        opacity: 0.6,
+        backgroundImage: `url(${backgroundImageConfig[theme.palette.mode]})`,
         backgroundSize: "auto,cover",
         backgroundPosition: "center",
       }}
@@ -47,7 +54,7 @@ function App() {
         p={2}
         mt={2}
         sx={{
-          backgroundColor: "rgba(255, 255, 255, 0.2)",
+          backgroundColor: "bg.panel",
           borderRadius: "24px",
           borderColor: "rgba(255, 255, 255, 0.5)",
           borderWidth: "1px",

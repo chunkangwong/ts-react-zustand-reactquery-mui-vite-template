@@ -57,7 +57,7 @@ export const Searchbar = ({ onSearch }: SearchbarProps) => {
         sx={{
           "& .MuiFilledInput-root": {
             borderRadius: "8px",
-            backgroundColor: "rgba(255, 255, 255, 0.2)",
+            backgroundColor: "bg.textField",
           },
           flexGrow: 1,
         }}
@@ -78,7 +78,7 @@ export const Searchbar = ({ onSearch }: SearchbarProps) => {
         sx={{
           "& .MuiFilledInput-root": {
             borderRadius: "8px",
-            backgroundColor: "rgba(255, 255, 255, 0.2)",
+            backgroundColor: "bg.textField",
           },
           flexGrow: 1,
         }}
@@ -89,7 +89,7 @@ export const Searchbar = ({ onSearch }: SearchbarProps) => {
           onClick={handleClear}
           sx={{
             borderRadius: "25%",
-            backgroundColor: "rgba(108, 64, 181, 1)",
+            backgroundColor: "bg.searchIconButton",
             color: "white",
             "&:hover": {
               backgroundColor: "rgba(108, 64, 181, 0.6)",
@@ -103,11 +103,8 @@ export const Searchbar = ({ onSearch }: SearchbarProps) => {
         type="submit"
         sx={{
           borderRadius: "25%",
-          backgroundColor: "rgba(108, 64, 181, 1)",
+          backgroundColor: "bg.searchIconButton",
           color: "white",
-          "&:hover": {
-            backgroundColor: "rgba(108, 64, 181, 0.6)",
-          },
         }}
       >
         <SearchIcon />

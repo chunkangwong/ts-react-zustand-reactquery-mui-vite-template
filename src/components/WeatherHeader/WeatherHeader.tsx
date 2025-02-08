@@ -27,7 +27,7 @@ export const WeatherHeader = ({
           variant="h1"
           sx={{
             fontWeight: "bold",
-            color: "rgba(108, 64, 181, 1)",
+            color: "font.temp",
           }}
         >
           {temp}&deg;
@@ -38,7 +38,7 @@ export const WeatherHeader = ({
         <Typography
           sx={{
             fontWeight: "bold",
-            color: "rgba(102, 102, 102, 1)",
+            color: "font.info",
           }}
         >
           {name}, {country}
@@ -57,7 +57,7 @@ export const WeatherHeader = ({
           alignItems="end"
           height="100%"
           sx={{
-            color: "rgba(102, 102, 102, 1)",
+            color: "font.info",
           }}
         >
           <Typography>{dayjs(datetime).format("DD-MM-YYYY hh:mmA")}</Typography>
