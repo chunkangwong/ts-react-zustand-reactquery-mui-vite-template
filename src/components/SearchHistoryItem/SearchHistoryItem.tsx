@@ -5,6 +5,7 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import dayjs from "dayjs";
 import { type SearchHistoryItemType } from "../../types";
+import { motion } from "motion/react";
 
 interface SearchHistoryItemProps {
   searchHistoryItem: SearchHistoryItemType;
@@ -18,8 +19,6 @@ export const SearchHistoryItem = ({
   onSearch,
 }: SearchHistoryItemProps) => {
   const handleDelete = () => {
-    const ok = confirm("Are you sure you want to delete this item?");
-    if (!ok) return;
     onDelete(id);
   };
 
@@ -44,6 +43,8 @@ export const SearchHistoryItem = ({
         width: "100%",
         boxSizing: "border-box",
       }}
+      component={motion.div}
+      layout
     >
       <Stack
         marginRight="auto"
