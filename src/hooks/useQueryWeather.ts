@@ -12,6 +12,7 @@ export const useQueryWeather = () => {
       }&units=metric`;
 
       const response = await fetch(url);
+      if (response.status === 404) throw new Error("Invalid location");
       if (!response.ok) throw new Error(`API error: ${response.status}`);
 
       const weatherData: WeatherResponse = await response.json();

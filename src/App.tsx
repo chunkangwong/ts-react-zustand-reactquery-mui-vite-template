@@ -21,13 +21,22 @@ function App() {
   }, []);
 
   const handleSearch = async (formValues: FormValues) => {
-    const weatherData = await queryWeather.mutateAsync(formValues);
-    addItem({
-      city: weatherData.name,
-      country: weatherData.sys.country,
-      datetime: weatherData.datetime,
-      id: weatherData.datetime,
-    });
+    try {
+      const weatherData = await queryWeather.mutateAsync(formValues);
+      addItem({
+        city: weatherData.name,
+        country: weatherData.sys.country,
+        datetime: weatherData.datetime,
+        id: weatherData.datetime,
+      });
+    } catch (error) {
+      if ((error as Error).message === "Invalid location") {
+        window.alert("Invalid location. Please try another city & country.");
+      } else {
+        window.alert("Unexpected error. Please try again.");
+      }
+      console.error(error);
+    }
   };
 
   return (
