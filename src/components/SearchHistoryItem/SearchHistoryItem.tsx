@@ -41,9 +41,7 @@ export const SearchHistoryItem = ({
         height: "60px",
         backgroundColor: "rgba(255, 255, 255, 0.4)",
         borderRadius: "16px",
-        minWidth: "300px",
         width: "100%",
-        maxWidth: "580px",
         boxSizing: "border-box",
       }}
     >

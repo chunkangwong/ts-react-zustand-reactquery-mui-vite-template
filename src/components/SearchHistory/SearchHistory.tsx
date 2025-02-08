@@ -1,3 +1,4 @@
+import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { SearchHistoryItemType } from "../../types";
@@ -21,9 +22,14 @@ export const SearchHistory = ({
         borderRadius: "16px",
         backgroundColor: "rgba(255, 255, 255, 0.2)",
         padding: 2,
+        width: "100%",
+        mt: 2,
       }}
     >
-      <Typography>Search History</Typography>
+      <Stack>
+        <Typography>Search History</Typography>
+        <IconButton></IconButton>
+      </Stack>
       {searchHistoryItems.map((searchHistoryItem) => (
         <SearchHistoryItem
           key={searchHistoryItem.id}

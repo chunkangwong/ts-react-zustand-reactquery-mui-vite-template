@@ -16,7 +16,7 @@ export const WeatherHeader = ({
   datetime,
 }: WeatherHeaderProps) => {
   return (
-    <Grid container justifyContent="space-between">
+    <Grid container justifyContent="space-between" width="100%">
       <Grid
         size={{
           md: 6,

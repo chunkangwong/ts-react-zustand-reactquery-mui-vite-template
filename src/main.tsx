@@ -13,7 +13,7 @@ const queryClient = new QueryClient();
 
 const theme = createTheme({
   colorSchemes: {
-    dark: true,
+    dark: false,
   },
 });
 
