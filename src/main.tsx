@@ -17,16 +17,10 @@ const queryClient = new QueryClient({
   },
 });
 
-const Main = () => {
-  return (
-    <React.StrictMode>
-      <QueryClientProvider client={queryClient}>
-        <App />
-      </QueryClientProvider>
-    </React.StrictMode>
-  );
-};
-
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  <Main />
+  <React.StrictMode>
+    <QueryClientProvider client={queryClient}>
+      <App />
+    </QueryClientProvider>
+  </React.StrictMode>
 );
