@@ -1,4 +1,5 @@
 import { useMediaQuery, useTheme } from "@mui/material";
+import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid2";
 import Skeleton, { SkeletonProps } from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
@@ -143,25 +144,26 @@ export const WeatherHeader = ({ loading, weatherData }: WeatherHeaderProps) => {
       </Grid>
       <AnimatePresence>
         {weatherData && (
-          <motion.img
+          <Box
             src={
               weatherData.weather?.[0].main === "Clouds"
                 ? "/cloud.png"
                 : "/sun.png"
             }
             alt="Weather Icon"
-            style={{
-              width: "300px",
+            sx={{
+              width: { md: "300px", xs: "200px" },
               height: "auto",
               position: "absolute",
-              top: "-150px",
-              right: "-30px",
+              top: { md: "-70%", sm: "-70%", xs: "-50%" },
+              right: { md: "-5%", sm: "-5%", xs: "-10%" },
               maxWidth: "auto",
             }}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
+            component={motion.img}
           />
         )}
       </AnimatePresence>

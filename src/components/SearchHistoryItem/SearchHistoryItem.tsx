@@ -45,8 +45,8 @@ export const SearchHistoryItem = ({
       alignItems="center"
       gap={1}
       sx={{
-        padding: "0 20px",
-        height: "60px",
+        px: 2,
+        py: 1,
         backgroundColor: "bg.item",
         borderRadius: "16px",
         width: "100%",
