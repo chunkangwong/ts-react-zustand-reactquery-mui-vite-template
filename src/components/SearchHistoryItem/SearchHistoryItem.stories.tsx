@@ -28,11 +28,4 @@ export const Default: Story = {
     onDelete: () => null,
     onSearch: () => null,
   },
-  decorators: [
-    (Story) => (
-      <div style={{ padding: "3em", backgroundColor: "grey" }}>
-        <Story />
-      </div>
-    ),
-  ],
 };

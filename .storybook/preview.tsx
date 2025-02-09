@@ -12,7 +12,16 @@ const preview: Preview = {
   },
   decorators: [
     (Story) => (
-      <div style={{ padding: "3em", backgroundColor: "grey" }}>
+      <div
+        style={{
+          height: "500px",
+          backgroundImage: `url('bg-light.png')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundAttachment: "scroll",
+        }}
+      >
         <Story />
       </div>
     ),
