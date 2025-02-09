@@ -6,6 +6,7 @@ import Stack from "@mui/material/Stack";
 import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
 import { motion } from "motion/react";
 import { type SearchHistoryItemType } from "../../types";
 
@@ -14,6 +15,8 @@ interface SearchHistoryItemProps {
   onSearch: (formValues: { city: string; country: string }) => void;
   onDelete: (id: number) => void;
 }
+
+dayjs.extend(relativeTime);
 
 const iconButtonStyle: SxProps<Theme> = {
   backgroundColor: "bg.itemIconButton",
@@ -83,7 +86,9 @@ export const SearchHistoryItem = ({
             },
           }}
         >
-          {dayjs(datetime).format("DD-MM-YYYY hh:mmA")}
+          {dayjs(datetime).diff(dayjs(), "day") >= 2
+            ? dayjs(datetime).format("DD-MM-YYYY hh:mmA")
+            : dayjs(datetime).fromNow()}
         </Typography>
       </Stack>
       <Stack direction="row" gap={1}>
