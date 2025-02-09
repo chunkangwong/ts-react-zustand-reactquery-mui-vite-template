@@ -37,7 +37,7 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
         </Fab>
       </Tooltip>
       <Stack
-        height="100%"
+        minHeight="100vh"
         alignItems="center"
         py={2}
         sx={{
@@ -47,7 +47,7 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
-          backgroundAttachment: "fixed",
+          backgroundAttachment: "scroll",
         }}
       >
         {children}
